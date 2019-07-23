@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+$primary-color: #FFCC00;
+$submit-btn-bg-color: black;
+$submit-btn-color: white;
+
+html,
+body {
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    font-family: 'Montserrat';
+    //display: none;
+}
+
+header {
+    position: absolute;
+    padding: 1em;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 2em);
+    background: white;
+
+    a {
+        text-decoration: none;
+    }
+
+    a.logo {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: black;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
+
+        li a {
+            padding: 1em;
+            color: black;
+        }
+    }
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: auto;
+
+    section {
+        padding: 3em;
+
+        h1,
+        h2 {
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        .read-btn {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            background: url('../assets/arrow.svg') no-repeat;
+            background-size: 8px;
+            background-position: 0 1px;
+            padding-left: 1em;
+        }
+
+        .primary {
+            padding: 1.5em 1.5em 1.5em calc(3em + 25px);
+            background-position: 3em;
+            border: 1px solid grey;
+            display: inline-block;
+            margin-top: 3em;
+            margin-left: -3em;
+        }
+
+        .clipper {
+            overflow: hidden;
+
+        }
+    }
+
+    section.hero {
+        padding-top: 8em;
+        background: url('../assets/hero.jpg');
+        background-size: cover;
+
+        p {
+            width: 70%;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+        }
+    }
+
+    section.featured,
+    section.subscribe {
+        font-size: 0.9rem;
+        line-height: 1.6em;
+    }
+
+    section.featured {
+        background: $primary-color;
+
+        .read-btn {
+            margin-top: 2em;
+            display: block;
+            background-position: 0 0.2em;
+        }
+    }
+
+    section.subscribe {
+        input {
+            width: calc(100% - 2em);
+            padding: 1em;
+            font-family: 'Montserrat';
+            margin-bottom: 1em;
+        }
+
+        button {
+            width: 100%;
+            background: $submit-btn-bg-color;
+            color: $submit-btn-color;
+            font-family: 'Montserrat';
+            padding: 1em;
+            border: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1020px) {
+    header {
+        background: none;
+    }
+
+    .wrapper {
+        grid-template-columns: 70% auto;
+        grid-template-rows: 60% auto;
+        grid-template-areas: "hero featured""hero subscribe";
+        height: 100vh;
+    }
+
+    section.hero {
+        grid-area: hero;
+    }
+
+    section {
+        display: grid;
+        grid-template-rows: auto;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    html {
+        font-size: 21px;
+    }
+}
